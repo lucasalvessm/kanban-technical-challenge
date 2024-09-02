@@ -30,15 +30,23 @@ Implementação do Kanban de acordo com as regras descritas no [Desafio Técnico
 
 - Sei que são decisões que fogem do proposto, mas as tomei em função da experiência que gostaria de oferecer.
 
-# Rodando o projeto
+## Rodando o projeto
 
-execute o comando `docker-compose up` na raiz do projeto e poderá acessar a aplicação em `http://localhost:4200/`.
+Execute o comando `docker-compose up` na raiz do projeto e poderá acessar a aplicação em `http://localhost:4200/`.
 
 A / no final é importante, sem ela vai para a tela de configuração do nginx.
 
 Ou se preferir entre nos diretórios `FRONT` e `BACK` e execute `npm install` e depois `npm run server` e `npm start` respectivamente.
 
-# Tecnologias utilizadas no frontend
+## Executando testes unitários
+
+Execute o comando `npm test` no diretório `FRONT` para rodar os testes unitários.
+
+![](./assets/tests.png)
+
+Não criei testes em todos os components, mas criei alguns nos mais importantes. Pode olhar os arquivos `board.component.ts`, `card.component.ts` e `card.service.ts` para referência.
+
+## Tecnologias utilizadas no frontend
 
 - Angular 18
 - Angular Material 18
