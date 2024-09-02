@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CardViewComponent } from './card-view.component';
+import { cardsMock } from '../../../shared/testing/mock.data';
 
 describe('CardViewComponent', () => {
   let component: CardViewComponent;
@@ -8,12 +9,12 @@ describe('CardViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CardViewComponent]
-    })
-    .compileComponents();
+      imports: [CardViewComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CardViewComponent);
     component = fixture.componentInstance;
+    component.card = cardsMock[0];
     fixture.detectChanges();
   });
 
