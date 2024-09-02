@@ -1,0 +1,26 @@
+.card-edit {
+  padding: 20px;
+}
+
+.card-edit__form {
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+.card-edit__actions {
+  justify-content: space-between;
+  button {
+    margin-left: 10px;
+  }
+}
+
+.card-edit__description {
+  max-height: 500px;
+  overflow-y: auto !important;
+}
+
+.card-edit__delete-button {
+  height: 50px;
+  width: 50px;
+}

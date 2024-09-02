@@ -1,0 +1,45 @@
+<div class="card-edit">
+  <mat-card-content>
+    <form class="card-edit__form" #loginForm="ngForm">
+      <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input
+          matInput
+          placeholder="Ex. code technical test"
+          name="title"
+          [(ngModel)]="title"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <textarea
+          matInput
+          autosize
+          class="card-edit__description"
+          name="description"
+          [(ngModel)]="description"
+          placeholder="Ex. Because the opportunity is cool..."
+        ></textarea>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions class="card-edit__actions">
+    <div>
+      <button mat-button color="secondary" (click)="onCancel()">CANCEL</button>
+      <button
+        [disabled]="loginForm.invalid"
+        mat-flat-button
+        (click)="onSaveChanges()"
+      >
+        SAVE
+      </button>
+    </div>
+    @if (!hideDelete) {
+    <button mat-fab class="card-edit__delete-button" (click)="onDelete()">
+      <mat-icon>delete</mat-icon>
+    </button>
+    }
+  </mat-card-actions>
+</div>

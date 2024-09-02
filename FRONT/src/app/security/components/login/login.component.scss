@@ -1,0 +1,28 @@
+@use "breakpoints";
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-card {
+  width: 400px;
+  padding: 40px;
+  margin-top: -20vh;
+  display: flex;
+  gap: 7px;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+}
+
+@media (max-width: breakpoints.$mobile) {
+  .login-card {
+    width: 90%;
+    padding-inline: 20px;
+  }
+}

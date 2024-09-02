@@ -1,0 +1,16 @@
+<main class="board">
+  @for (column of columns; track $index) {
+  <app-column
+    class="board__column"
+    [column]="column"
+    [columnKeys]="columnKeys"
+    (updateCardDropped)="updateCardColumn($event)"
+  ></app-column>
+
+  }
+
+  <button mat-fab extended class="board__add-card-button" (click)="addCard()">
+    Add a card
+    <mat-icon>add</mat-icon>
+  </button>
+</main>

@@ -1,0 +1,6 @@
+<mat-card-header>
+  <mat-card-title>{{ card?.titulo }}</mat-card-title>
+</mat-card-header>
+<mat-card-content>
+  <p [innerHTML]="parseMarkdown(card!.conteudo)"></p>
+</mat-card-content>

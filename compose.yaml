@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  backend:
+    build:
+      context: ./BACK
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      NODE_ENV: production
+    depends_on:
+      - frontend
+  frontend:
+    build:
+      context: ./FRONT
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"
+    environment:
+      - ENV=production

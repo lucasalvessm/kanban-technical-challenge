@@ -1,0 +1,13 @@
+<mat-card class="card" appearance="outlined" (click)="openEditView()">
+  @if (mode !== 'view') {
+  <app-card-edit
+    (cancel)="cancelEdition()"
+    (saveChanges)="addOrEditCard($event)"
+    [card]="card"
+    [hideDelete]="mode === 'add'"
+    (delete)="deleteCard($event)"
+  ></app-card-edit>
+  } @else {
+  <app-card-view [card]="card"></app-card-view>
+  }
+</mat-card>
