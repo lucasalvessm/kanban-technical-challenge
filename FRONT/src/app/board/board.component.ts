@@ -36,7 +36,6 @@ export class BoardComponent implements OnInit {
       .subscribe((cards) => {
         this.columns.forEach((column) => {
           column.cards = cards.filter((card) => card.lista === column.key);
-          console.log('column', column);
         });
       });
 

@@ -1,4 +1,4 @@
-export const cardsMock = [
+export const getCardsMock = () => [
   {
     titulo: 'Plantar banana',
     conteudo: 'muito importante para nutrição',

@@ -4,7 +4,7 @@ import { CardService } from './card.service';
 import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { getHttpCliSpy } from '../../shared/testing/obj-spy.shared';
-import { cardsMock } from '../../shared/testing/mock.data';
+import { getCardsMock } from '../../shared/testing/mock.data';
 import { of } from 'rxjs';
 import { environment } from '../../../environments/environment';
 
@@ -31,16 +31,16 @@ describe('CardService', () => {
   });
 
   it('should get all cards', () => {
-    httpClientSpy.get.and.returnValue(of(cardsMock));
+    httpClientSpy.get.and.returnValue(of(getCardsMock()));
 
     service.getCards().subscribe((cards) => {
       expect(httpClientSpy.get).toHaveBeenCalled();
-      expect(cards).toEqual(cardsMock);
+      expect(cards).toEqual(getCardsMock());
     });
   });
 
   it('should add a card', () => {
-    httpClientSpy.post.and.returnValue(of(cardsMock[0]));
+    httpClientSpy.post.and.returnValue(of(getCardsMock()[0]));
 
     service.addNewCard('titulo', 'conteudo').subscribe((card) => {
       expect(httpClientSpy.post).toHaveBeenCalledWith(
@@ -51,36 +51,36 @@ describe('CardService', () => {
           lista: 'todo',
         }
       );
-      expect(card).toEqual(cardsMock[0]);
+      expect(card).toEqual(getCardsMock()[0]);
     });
   });
 
   it('should edit a card', () => {
-    httpClientSpy.put.and.returnValue(of(cardsMock[0]));
+    httpClientSpy.put.and.returnValue(of(getCardsMock()[0]));
 
-    service.editCard(cardsMock[0]).subscribe((card) => {
+    service.editCard(getCardsMock()[0]).subscribe((card) => {
       expect(httpClientSpy.put).toHaveBeenCalledWith(
-        `${environment.apiUrl}/cards/${cardsMock[0].id}`,
-        cardsMock[0]
+        `${environment.apiUrl}/cards/${getCardsMock()[0].id}`,
+        getCardsMock()[0]
       );
-      expect(card).toEqual(cardsMock[0]);
+      expect(card).toEqual(getCardsMock()[0]);
     });
   });
 
   it('should delete a card', () => {
     httpClientSpy.delete.and.returnValue(of(undefined));
 
-    service.deleteCard(cardsMock[0]).subscribe(() => {
+    service.deleteCard(getCardsMock()[0]).subscribe(() => {
       expect(httpClientSpy.delete).toHaveBeenCalledWith(
-        `${environment.apiUrl}/cards/${cardsMock[0].id}`
+        `${environment.apiUrl}/cards/${getCardsMock()[0].id}`
       );
     });
   });
 
   it('should trigger card edit', () => {
-    service.triggerCardEdit(cardsMock[0]);
+    service.triggerCardEdit(getCardsMock()[0]);
     service.editCard$.subscribe((card) => {
-      expect(card).toEqual(cardsMock[0]);
+      expect(card).toEqual(getCardsMock()[0]);
     });
   });
 });

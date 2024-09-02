@@ -4,7 +4,7 @@ import { CardComponent } from './card.component';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { getCardServiceSpy } from '../../../shared/testing/obj-spy.shared';
 import { CardService } from '../../services/card.service';
-import { cardsMock } from '../../../shared/testing/mock.data';
+import { getCardsMock } from '../../../shared/testing/mock.data';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('CardComponent', () => {
@@ -19,7 +19,7 @@ describe('CardComponent', () => {
         {
           provide: MAT_DIALOG_DATA,
           useValue: {
-            card: cardsMock[0],
+            card: getCardsMock()[0],
           },
         },
         { provide: CardService, useValue: getCardServiceSpy() },
@@ -33,7 +33,7 @@ describe('CardComponent', () => {
     fixture = TestBed.createComponent(CardComponent);
     cardService = TestBed.inject(CardService) as jasmine.SpyObj<CardService>;
     component = fixture.componentInstance;
-    component.card = cardsMock[0];
+    component.card = getCardsMock()[0];
     fixture.detectChanges();
   });
 
@@ -97,15 +97,15 @@ describe('CardComponent', () => {
       const card = { title: 'title', description: 'description' };
       component.addOrEditCard(card);
       expect(cardService.editCard).toHaveBeenCalledWith({
-        ...cardsMock[0],
+        ...getCardsMock()[0],
         titulo: card.title,
         conteudo: card.description,
       });
     });
 
     it('should delete card when deleteCard is called', () => {
-      component.deleteCard(cardsMock[0]);
-      expect(cardService.deleteCard).toHaveBeenCalledWith(cardsMock[0]);
+      component.deleteCard(getCardsMock()[0]);
+      expect(cardService.deleteCard).toHaveBeenCalledWith(getCardsMock()[0]);
     });
   });
 });
